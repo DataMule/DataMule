@@ -1,5 +1,5 @@
 import click
-from datamule.io.yaml_Parser import yamlParser
+from datamule.io.yaml_parser import yamlParser
 from datamule.core.data_mule import DataMule
 
 @click.group()

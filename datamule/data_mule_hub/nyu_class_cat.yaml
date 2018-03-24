@@ -1,0 +1,12 @@
+get_Data:
+  protocol: 'rest'
+  connectors:
+    - connector:
+        connection_string: 'https://data.cityofnewyork.us/api/views/urz7-pzb3/rows.csv?accessType=DOWNLOAD'
+        table_name: "City_Record_Online"
+        delta:
+          type: 'column'
+          value: 0
+        schema: 'auto'
+  auth: False
+  format_type: 'json'

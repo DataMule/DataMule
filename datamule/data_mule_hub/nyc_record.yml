@@ -1,6 +1,6 @@
 #Example file for NYC OpenData
 get_Data:
-  protocol: 'HTTP'
+  protocol: 'http'
   connectors:
     - connector:
         connection_string: 'https://data.cityofnewyork.us/api/views/dg92-zbpx/rows.csv?accessType=DOWNLOAD'

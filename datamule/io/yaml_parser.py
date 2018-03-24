@@ -5,7 +5,7 @@ from collections import defaultdict
 
 class yamlParser():
     def __init__(self):
-        self.yamlFileDirectory = 'dataMuleHub'
+        self.yamlFileDirectory = 'data_mule_hub'
 
     def parse(self, filename):
         cur_path = os.getcwd()

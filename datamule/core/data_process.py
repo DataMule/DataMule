@@ -8,8 +8,8 @@ class DataProcess():
     engine = create_engine('sqlite:///data_mule.db')
 
     def __init__(self):
-        Session = sessionmaker(bind=self.engine)
-        self.session = Session()
+        self.Session = sessionmaker(bind=self.engine)
+        self.session = self.Session()
 
     def insert_process(self, name, local_or_container, delta, table_name, datasource_type):
         session = Session()
