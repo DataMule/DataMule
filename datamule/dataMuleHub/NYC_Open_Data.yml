@@ -1,0 +1,14 @@
+#Example file for NYC OpenData
+get_Data:
+  protocol: 'HTTP'
+  connectors:
+    - connector:
+        connection_String: 'https://data.cityofnewyork.us/api/views/dg92-zbpx/rows.csv?accessType=DOWNLOAD'
+        table_name: "City_Record_Online"
+        delta:
+          type: 'column'
+          page: 0
+        schema: 'auto'
+  auth: True
+  format_type: 'csv'
+  db_type: 'postgres'

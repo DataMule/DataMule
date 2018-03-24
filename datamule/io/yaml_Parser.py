@@ -1,0 +1,27 @@
+import os
+import yaml
+from collections import defaultdict
+
+
+class yamlParser():
+    def __init__(self):
+        self.yamlFileDirectory = 'dataMuleHub'
+
+    def parse(self, filename):
+        cur_path = os.path.dirname(__file__)
+        yamlFilePath = os.path.join(cur_path, '..', self.yamlFileDirectory, filename)
+        with open(yamlFilePath,'r') as stream:
+            try:
+                parse_dict = yaml.load(stream)
+                return parse_dict['get_Data']
+            except yaml.YAMLError as exc:
+                print(exc)
+
+    def getConstructorArguments(self, mydict):
+        protocol = mydict['protocol']
+        connectors = mydict['connectors']
+        auth = mydict['auth']
+        format_type = mydict['format_type']
+        db_type = mydict['db_type']
+        
+        return protocol, connectors, auth, format_type, db_type

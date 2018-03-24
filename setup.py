@@ -8,9 +8,13 @@ setup(
     install_requires=[
         'Click',
         'pyyaml',
+        'pandas',
+        'requests',
+        'sqlalchemy',
+        'docker',
     ],
     entry_points='''
         [console_scripts]
-        datamule=datamule.core.cli:main
+        datamule=datamule.cli:main
     ''',
 )
