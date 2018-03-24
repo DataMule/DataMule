@@ -1,0 +1,9 @@
+#Example file for NYC OpenData
+getData:
+  protocol: 'HTTP'
+  connector: 'https://data.cityofnewyork.us/api/views/dg92-zbpx/rows.csv?accessType=DOWNLOAD'
+  delta:
+    type: 'column'
+    page: 0
+  auth: false
+  schema: 'auto'
