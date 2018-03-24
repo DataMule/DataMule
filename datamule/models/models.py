@@ -29,4 +29,4 @@ class DataProcessModel(Base, TimestampMixin):
              self.created_date)
 
 
-#Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)
