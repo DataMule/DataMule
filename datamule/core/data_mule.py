@@ -29,7 +29,7 @@ class DataMule():
             table_name = connector['connector']['table_name']
             delta_type = connector['connector']['delta']['type']
             delta_value = connector['connector']['delta']['value']
-            self._upload_to_db(connection_string, table_name)
+            self._upload_to_db(connection_string, table_name, self.api_token)
             self._insert_data_process(table_name, delta_value)
 
     def remove(self):
@@ -62,12 +62,15 @@ class DataMule():
         self.user_name = dict_user_password['username']
         self.password = dict_user_password['password']
 
-    def _upload_to_db(self, connection_string, table_name):
+    def _upload_to_db(self, connection_string, table_name, auth_token):
         uploader = Uploader(self.db_type, self.user_name, self.password)
         if self.protocol == 'http':
             uploader.upload_http(connection_string, table_name)
         elif self.protocol == 'rest':
-            headers = {'Authorization': 'Bearer 3b4e725b-29f7-3a07-9c19-47a7688d9512'}
+            if auth_token:
+                headers = {'Authorization': 'Bearer {}'.format(auth_token)}
+            else:
+                headers = None
             uploader.load_rest(connection_string, headers, table_name)
 
     def _insert_data_process(self, table_name, delta_value):

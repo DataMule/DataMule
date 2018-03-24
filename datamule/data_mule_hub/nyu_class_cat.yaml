@@ -2,8 +2,8 @@ get_Data:
   protocol: 'rest'
   connectors:
     - connector:
-        connection_string: 'https://data.cityofnewyork.us/api/views/urz7-pzb3/rows.csv?accessType=DOWNLOAD'
-        table_name: "City_Record_Online"
+        connection_string: 'https://sandbox.api.it.nyu.edu/course-catalog-exp/courses'
+        table_name: "nyu_class_cat"
         delta:
           type: 'column'
           value: 0
