@@ -5,8 +5,10 @@ from sqlalchemy import create_engine
 
 class Uploader():
 
-    def __init__(self, db_type):
+    def __init__(self, db_type, user_name, password):
         self.db_type = db_type
+        self.user_name = user_name
+        self.password = password
 
     def upload_http(self, http_link):
         chunksize = 1000000

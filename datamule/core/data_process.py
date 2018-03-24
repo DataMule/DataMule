@@ -3,15 +3,12 @@ from datamule.models.models import DataProcessModel
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('sqlite://')
-
-
-
 class DataProcess():
 
-    def __init__(self, engine):
-        self.engine = engine
-        Session = sessionmaker(bind=engine)
+    engine = create_engine('sqlite:///data_mule.db')
+
+    def __init__(self):
+        Session = sessionmaker(bind=self.engine)
         self.session = Session()
 
     def insert_process(self, name, local_or_container, delta, table_name, datasource_type):
@@ -22,4 +19,8 @@ class DataProcess():
         session.commit()
 
     def get_processes(self):
-        return []
+        data_processes = self.session.query(DataProcessModel).all()
+        return data_processes
+
+    def remove_process(self, name):
+        self.session.query(DataProcessModel).filter(DataProcessModel.name == name).delete()

@@ -2,7 +2,7 @@ from sqlalchemy import Column, Table, Integer, ForeignKey, create_engine, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 
-engine = create_engine('sqlite://')
+engine = create_engine('sqlite:///data_mule.db')
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
