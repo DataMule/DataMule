@@ -44,8 +44,8 @@ class DataMule():
 
     def _upload_to_db(self, connection_string, table_name):
         uploader = Uploader(self.db_type, self.user_name, self.password)
-        if self.protocol == 'http':
-            uploader.upload_http(connection_string, table_name)
+        # if self.protocol == 'http':
+        uploader.upload_http(connection_string, table_name)
 
     def _insert_data_process(self, table_name, delta_value):
         data_process = DataProcess()
