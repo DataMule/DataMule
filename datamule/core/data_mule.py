@@ -23,4 +23,5 @@ class DataMule():
     def _upload_to_db(self):
         uploader = Uploader()
         if self.protocol == 'http':
-            uploader.upload_http(self.connector)
+            uploader.upload_http(self.connector, self.db_type)
+
