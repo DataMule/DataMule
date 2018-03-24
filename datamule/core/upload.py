@@ -17,6 +17,6 @@ class Uploader():
 
 
     def _write_to_db(self, df_write, db_table):
-        if (self.db_type == 'postgres'):
-            engine = create_engine('postgresql://{}:{}@localhost:5432/postgres'.format(self.user_name, self.password))
-            df_write.to_sql(db_table, con=engine)
+        # if (self.db_type == 'postgres'):
+        engine = create_engine('postgresql://{}:{}@localhost:5432/postgres'.format(self.user_name, self.password))
+        df_write.to_sql(db_table, con=engine)

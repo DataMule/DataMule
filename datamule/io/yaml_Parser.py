@@ -8,8 +8,8 @@ class yamlParser():
         self.yamlFileDirectory = 'dataMuleHub'
 
     def parse(self, filename):
-        cur_path = os.path.dirname(__file__)
-        yamlFilePath = os.path.join(cur_path, '..', self.yamlFileDirectory, filename)
+        cur_path = os.getcwd()
+        yamlFilePath = os.path.join(cur_path, 'datamule', self.yamlFileDirectory, filename)
         with open(yamlFilePath,'r') as stream:
             try:
                 parse_dict = yaml.load(stream)

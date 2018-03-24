@@ -6,8 +6,10 @@ engine = create_engine('sqlite:///data_mule.db')
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
+
 class TimestampMixin(object):
     created_date = Column(DateTime, default=func.now())
+
 
 class DataProcessModel(Base, TimestampMixin):
     """DataProcess object"""
@@ -26,3 +28,5 @@ class DataProcessModel(Base, TimestampMixin):
             (self.id, self.name, self.connector_link, self.local_or_container, self.delta, self.table_name,
              self.created_date)
 
+
+#Base.metadata.create_all(engine)

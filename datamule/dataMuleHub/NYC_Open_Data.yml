@@ -3,12 +3,12 @@ get_Data:
   protocol: 'HTTP'
   connectors:
     - connector:
-        connection_String: 'https://data.cityofnewyork.us/api/views/dg92-zbpx/rows.csv?accessType=DOWNLOAD'
+        connection_string: 'https://data.cityofnewyork.us/api/views/dg92-zbpx/rows.csv?accessType=DOWNLOAD'
         table_name: "City_Record_Online"
         delta:
           type: 'column'
-          page: 0
+          value: 0
         schema: 'auto'
-  auth: True
+  auth: False
   format_type: 'csv'
   db_type: 'postgres'

@@ -22,3 +22,5 @@ def run(datasetname):
     if auth:
         API_ACCESS_TOKEN = click.prompt('Authentication required, please enter API access token', type=str)
     dataMule = DataMule(protocol, connectors, auth, format_type, db_type, API_ACCESS_TOKEN)
+    dataMule.run()
+

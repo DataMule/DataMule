@@ -39,7 +39,7 @@ class DataMule():
     def _get_db(self):
         data_mule_docker = DataMuleDocker(self.db_type)
         dict_user_password = data_mule_docker.run()
-        self.user_name = dict_user_password['user_name']
+        self.user_name = dict_user_password['username']
         self.password = dict_user_password['password']
 
     def _upload_to_db(self, connection_string):
