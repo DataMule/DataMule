@@ -22,9 +22,10 @@ class Uploader():
         else:
             raise Exception("Database type {} not found".format(self.db_type))
 
-    def load_rest(self, connection_params, table_name):
+    def load_rest(self, connection_string, headers, table_name):
         # TODO: Add looping to get more than on set of results
-        r = requests.get(**connection_params)
+        params = {'page': '1'}
+        r = requests.get(connection_string, headers=headers, params=params)
         if r.status_code == 200:
             df = pd.read_json(r.content)
             self._write_to_db(df, table_name)

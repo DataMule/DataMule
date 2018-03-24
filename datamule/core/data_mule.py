@@ -66,7 +66,9 @@ class DataMule():
         uploader = Uploader(self.db_type, self.user_name, self.password)
         if self.protocol == 'http':
             uploader.upload_http(connection_string, table_name)
-        
+        elif self.protocol == 'rest':
+            headers = {'Authorization': 'Bearer 3b4e725b-29f7-3a07-9c19-47a7688d9512'}
+            uploader.load_rest(connection_string, headers, table_name)
 
     def _insert_data_process(self, table_name, delta_value):
         self.data_process.insert_process(name=table_name, local_or_container='container',
