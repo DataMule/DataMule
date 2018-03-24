@@ -5,19 +5,16 @@ from sqlalchemy import create_engine
 
 class Uploader():
 
-    def __init__(self, db_type):
+    def __init__(self, db_type, user_name, password):
         self.db_type = db_type
+        self.user_name = user_name
+        self.password = password
 
     def upload_http(self, http_link):
         chunksize = 1000000
         for chunk in pd.read_csv(http_link, chunksize=chunksize):
             self._write_to_db(chunk)
 
-    def _get_db(self):
-        data_mule_docker = DataMuleDocker()
-        dict_user_password =data_mule_docker.run()
-        self.user_name = dict_user_password['user_name']
-        self.password = dict_user_password['password']
 
     def _write_to_db(self, df_write, db_table):
         if (self.db_type == 'postgres'):
