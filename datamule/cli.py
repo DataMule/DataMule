@@ -12,12 +12,13 @@ def ps():
     pass
 
 @main.command()
-@click.argument('datasetname', type=click.STRING)
-def run(datasetname):
+@click.argument('dataset_name', type=click.STRING)
+@click.argument('db_type', type=click.STRING)
+def run(dataset_name, db_type):
     """This starts the datamule."""
     parser = yamlParser()
-    d = parser.parse(datasetname + ".yml")
-    protocol, connectors, auth, format_type, db_type = parser.getConstructorArguments(d)
+    dataset_dict = parser.parse(dataset_name + ".yml")
+    protocol, connectors, auth, format_type = parser.getConstructorArguments(dataset_dict)
     API_ACCESS_TOKEN = None
     if auth:
         API_ACCESS_TOKEN = click.prompt('Authentication required, please enter API access token', type=str)

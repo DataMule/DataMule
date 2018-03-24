@@ -11,4 +11,3 @@ get_Data:
         schema: 'auto'
   auth: False
   format_type: 'csv'
-  db_type: 'postgres'

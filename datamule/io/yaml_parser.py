@@ -22,6 +22,5 @@ class yamlParser():
         connectors = mydict['connectors']
         auth = mydict['auth']
         format_type = mydict['format_type']
-        db_type = mydict['db_type']
         
-        return protocol, connectors, auth, format_type, db_type
+        return protocol, connectors, auth, format_type
