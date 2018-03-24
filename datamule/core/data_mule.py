@@ -20,8 +20,14 @@ class DataMule():
             elif self.format == 'json':
                 return parser.create_schema(self.connector)
 
+    def _get_db(self):
+        data_mule_docker = DataMuleDocker(self.db_type)
+        dict_user_password = data_mule_docker.run()
+        self.user_name = dict_user_password['user_name']
+        self.password = dict_user_password['password']
+
     def _upload_to_db(self):
-        uploader = Uploader()
+        uploader = Uploader(self.db_type)
         if self.protocol == 'http':
-            uploader.upload_http(self.connector, self.db_type)
+            uploader.upload_http(self.connector)
 

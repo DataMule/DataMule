@@ -13,11 +13,6 @@ class Uploader():
         for chunk in pd.read_csv(http_link, chunksize=chunksize):
             self._write_to_db(chunk)
 
-    def _get_db(self):
-        data_mule_docker = DataMuleDocker()
-        dict_user_password =data_mule_docker.run()
-        self.user_name = dict_user_password['user_name']
-        self.password = dict_user_password['password']
 
     def _write_to_db(self, df_write, db_table):
         if (self.db_type == 'postgres'):
