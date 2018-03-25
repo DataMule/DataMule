@@ -11,7 +11,7 @@ def main():
 def ps():
     """This prints all currently running processes in the database. """
     data_process = DataProcess()
-    template = """{0:5}|{1:20}|{2:20}|{3:20}|{4:10}|{5:14}""".format \
+    template = """    {0:5}|{1:20}|{2:20}|{3:20}|{4:22}|{5:14}""".format \
         ("id", "name", "local_or_container", "table_name", "created_date", "datasource_type")
 
     click.echo(template)
