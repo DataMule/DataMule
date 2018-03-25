@@ -1,5 +1,4 @@
-#Example file for NYC OpenData
-get_Data:
+get_data:
   protocol: 'http'
   connectors:
     - connector:

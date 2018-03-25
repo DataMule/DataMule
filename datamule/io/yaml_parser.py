@@ -13,7 +13,7 @@ class yamlParser():
         with open(yamlFilePath,'r') as stream:
             try:
                 parse_dict = yaml.load(stream)
-                return parse_dict['get_Data']
+                return parse_dict['get_data']
             except yaml.YAMLError as exc:
                 print(exc)
 

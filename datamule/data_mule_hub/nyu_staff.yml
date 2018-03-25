@@ -2,7 +2,7 @@ get_data:
   protocol: 'rest'
   connectors:
     - connector:
-        connection_string: 'https://sandbox.api.it.nyu.edu/course-catalog-exp/courses'
+        connection_string: 'https://sandbox.api.it.nyu.edu/staff-exp/users'
         table_name: "nyu_class_cat"
         delta:
           type: 'page'
