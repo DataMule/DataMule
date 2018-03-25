@@ -2,7 +2,6 @@ from datamule.core.parser import Parser
 from datamule.core.upload import Uploader
 from datamule.core.data_process import DataProcess
 from datamule.docker.container import DataMuleDocker
-from pandas.io.sql import SQLTable
 
 class DataMule():
 
@@ -25,7 +24,7 @@ class DataMule():
             delta_value = connector['connector']['delta']['value']
             self._upload_to_db(connection_string, table_name, self.api_token)
             self._insert_data_process(table_name, delta_value)
-
+        return self.user_name, self.password
     def remove(self):
         self._get_db()
         for connector in self.connectors:

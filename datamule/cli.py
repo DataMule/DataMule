@@ -11,7 +11,7 @@ def main():
 def ps():
     """This prints all currently running processes in the database. """
     data_process = DataProcess()
-    click.echo("id  name     local_or_container     table_name   created_date   datasource_type")
+    click.echo("id  name         local_or_container          table_name           created_date         datasource_type")
     click.echo(data_process.get_processes())
 
 @main.command()
@@ -26,4 +26,5 @@ def run(dataset_name, db_type):
     if auth:
         API_ACCESS_TOKEN = click.prompt('Authentication required, please enter API access token', type=str)
     dataMule = DataMule(protocol, connectors, auth, format_type, db_type, API_ACCESS_TOKEN)
-    dataMule.run()
+    user_name, password = dataMule.run()
+    click.echo("you database username is {} and password is {}".format(user_name, password))
