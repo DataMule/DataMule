@@ -23,12 +23,12 @@ class DataProcessModel(Base, TimestampMixin):
 
 
     def __str__(self):
-        return """{0:5}|{1:20}|{2:20}|{3:20}|{4:22}|{5:14}""".format\
-            (self.id, self.name, self.local_or_container, self.table_name, self.created_date, self.datasource_type)
+        return """{0:5}    |{1:20}|{2:20}|{3:20}|{4:22}|{5:14}""".format\
+            (self.id, self.name, self.local_or_container, self.table_name, self.created_date.strftime("%Y-%m-%d %H:%M:%S"), self.datasource_type)
 
     def __repr__(self):
-        return """{0:5}|{1:20}|{2:20}|{3:20}|{4:22}|{5:14}""".format\
-            (self.id, self.name, self.local_or_container, self.table_name, self.created_date, self.datasource_type)
+        return """{0:5}    |{1:20}|{2:20}|{3:20}|{4:22}|{5:14}""".format\
+            (self.id, self.name, self.local_or_container, self.table_name, self.created_date.strftime("%Y-%m-%d %H:%M:%S"), self.datasource_type)
 
 
 
