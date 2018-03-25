@@ -28,5 +28,11 @@ class DataProcessModel(Base, TimestampMixin):
             (self.id, self.name, self.connector_link, self.local_or_container, self.delta, self.table_name,
              self.created_date)
 
+    def __repr__(self):
+        return 'id  name     local_or_container   delta    table_name   created_date   datasource_type \n' \
+               '{}  {}       {}                   {}       {}           {}             {}'.format\
+            (self.id, self.name, self.connector_link, self.local_or_container, self.delta, self.table_name,
+             self.created_date)
+
 
 Base.metadata.create_all(engine)

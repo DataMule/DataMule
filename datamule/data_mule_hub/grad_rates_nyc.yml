@@ -1,0 +1,13 @@
+get_Data:
+  protocol: 'http'
+  connectors:
+    - connector:
+        connection_string: 'https://data.cityofnewyork.us//api/views/vh2h-md7a/rows.csv?accessType=DOWNLOAD'
+        table_name: "class_size"
+        delta:
+          type: 'column'
+          value: 0
+        schema: 'auto'
+  auth: False
+  format_type: 'csv'
+

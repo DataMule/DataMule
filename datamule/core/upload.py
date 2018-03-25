@@ -1,5 +1,7 @@
+import itertools
 import pandas as pd
 import requests
+import sys
 from sqlalchemy import create_engine
 
 
@@ -24,10 +26,12 @@ class Uploader():
 
     def load_rest(self, connection_string, headers, table_name):
         # TODO: Add looping to get more than on set of results
-        params = {'page': '1'}
-        r = requests.get(connection_string, headers=headers, params=params)
-        if r.status_code == 200:
-            df = pd.read_json(r.content)
-            self._write_to_db(df, table_name)
-        else:
-            raise Exception(r.content)
+        for page in itertools.count():
+            params = {'page': str(page+1)}
+            r = requests.get(connection_string, headers=headers, params=params)
+            if r.status_code == 200:
+                df = pd.read_json(r.content)
+                self._write_to_db(df, table_name)
+            else:
+                break
+
