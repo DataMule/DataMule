@@ -11,6 +11,7 @@ def main():
 def ps():
     """This prints all currently running processes in the database. """
     data_process = DataProcess()
+    click.echo("id  name     local_or_container     table_name   created_date   datasource_type")
     click.echo(data_process.get_processes())
 
 @main.command()

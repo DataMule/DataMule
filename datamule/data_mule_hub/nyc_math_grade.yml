@@ -1,0 +1,12 @@
+get_data:
+  protocol: 'http'
+  connectors:
+    - connector:
+        connection_string: 'https://data.cityofnewyork.us/api/views/gcvr-n8qw/rows.csv?accessType=DOWNLOAD'
+        table_name: "nyc_math_grade"
+        delta:
+          type: 'column'
+          value: 0
+        schema: 'auto'
+  auth: False
+  format_type: 'csv'
