@@ -23,9 +23,8 @@ class DataProcessModel(Base, TimestampMixin):
 
 
     def __str__(self):
-        return """{}  {}       {}                      {}           {}             {}""".format\
-            (self.id, self.name, self.local_or_container, self.delta, self.table_name,
-             self.created_date, self.datasource_type)
+        return """{}  {}     {}                 {}         {}             {}""".format\
+            (self.id, self.name, self.local_or_container, self.table_name ,self.created_date, self.datasource_type)
 
     def __repr__(self):
         return """{}  {}       {}                      {}           {}             {}""".format\

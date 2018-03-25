@@ -12,7 +12,9 @@ def ps():
     """This prints all currently running processes in the database. """
     data_process = DataProcess()
     click.echo("id  name         local_or_container          table_name           created_date         datasource_type")
-    click.echo(data_process.get_processes())
+    for process in data_process.get_processes():
+        click.echo(process)
+        click.echo('\n')
 
 @main.command()
 @click.argument('dataset_name', type=click.STRING)

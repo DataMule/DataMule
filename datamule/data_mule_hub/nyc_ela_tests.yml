@@ -3,7 +3,7 @@ get_data:
   connectors:
     - connector:
         connection_string: 'https://data.cityofnewyork.us//api/views/wrhz-w8mn/rows.csv?accessType=DOWNLOAD'
-        table_name: "nyc_math_grade"
+        table_name: "nyc_ela_tests"
         delta:
           type: 'column'
           value: 0
