@@ -8,5 +8,5 @@ get_Data:
           type: 'column'
           value: 0
         schema: 'auto'
-  auth: False
+  auth: True
   format_type: 'json'

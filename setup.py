@@ -12,6 +12,7 @@ setup(
         'requests',
         'sqlalchemy',
         'docker',
+        'psycopg2'
     ],
     entry_points='''
         [console_scripts]
