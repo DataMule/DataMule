@@ -4,12 +4,7 @@ from datamule.core.data_process import DataProcess
 from datamule.docker.container import DataMuleDocker
 from pandas.io.sql import SQLTable
 
-
 class DataMule():
-
-    def _execute_insert(self, conn, keys, data_iter):
-        data = [dict((k, v) for k, v in zip(keys, row)) for row in data_iter]
-        conn.execute(self.insert_statement().values(data))
 
     def __init__(self, protocol, connectors, auth, format_type, db_type, api_token=None):
         self.protocol = protocol
@@ -18,7 +13,6 @@ class DataMule():
         self.format_type = format_type
         self.db_type = db_type
         self.api_token = api_token
-        SQLTable._execute_insert = self._execute_insert
         self.data_process = DataProcess()
 
     def run(self):
